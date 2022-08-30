@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  maxscale:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-08-30T12:27:20.918722093Z"
+    description: A Helm chart for Kubernetes
+    digest: ccf526696498e69de48bc6d393dc232ce0fa7ff4ceb4b0b6e5c1912cf8b39792
+    name: maxscale
+    type: application
+    urls:
+    - https://mona-mp.github.io/maxscale-helmchart/maxscale-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-08-30T12:27:20.917460348Z"
