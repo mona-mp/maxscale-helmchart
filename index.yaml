@@ -9,6 +9,6 @@ entries:
     name: maxscale
     type: application
     urls:
-    - https://mona-mp.github.io/maxscale-helmchart/maxscale-0.1.0.tgz
+    - https://mona-mp.github.io/maxscale-helmchart-repo/maxscale-0.1.0.tgz
     version: 0.1.0
 generated: "2022-08-30T12:27:20.917460348Z"
