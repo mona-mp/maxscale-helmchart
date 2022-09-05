@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "maxscale.fullname" . }}
+  labels:
+    {{- include "maxscale.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "maxscale.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      {{- end }}
+      labels:
+        {{- include "maxscale.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+          - name: mariadb
+            containerPort: {{ .Values.service.mariadbport }}
+          - name: maxscale
+            containerPort: {{ .Values.service.restapiport }}
+          volumeMounts:
+          - name: maxscale
+            mountPath: /etc/maxscale.cnf.d/
+      volumes:
+      - name: maxscale
+        configMap:
+          name: {{ include "maxscale.fullname" . }}
